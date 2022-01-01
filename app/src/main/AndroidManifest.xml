@@ -3,6 +3,7 @@
     package="com.buildreams.mathvoice">
 
     <application
+        android:name=".MathVoiceApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -10,10 +11,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MathVoice">
         <activity
-            android:name=".MainActivity"
+            android:name=".mathtask.MathTaskActivity"
+            android:exported="false"
+            android:label="@string/title_activity_math_task"
+            android:theme="@style/Theme.MathVoice" />
+        <activity
+            android:name=".login.LoginActivity"
             android:exported="true"
-            android:label="@string/app_name"
-            android:theme="@style/Theme.MathVoice">
+            android:theme="@style/Theme.MathVoice"
+            android:windowSoftInputMode="adjustResize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

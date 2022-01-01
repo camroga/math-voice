@@ -1,7 +1,7 @@
-package com.buildreams.mathvoice
+package com.buildreams.mathvoice.login
 
+import android.content.Intent
 import android.os.Bundle
-import android.view.WindowManager
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
@@ -9,13 +9,19 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import com.buildreams.mathvoice.composable.LoginPage
+import androidx.compose.ui.tooling.preview.Preview
+import com.buildreams.mathvoice.mathtask.MathTaskActivity
 import com.buildreams.mathvoice.ui.theme.MathVoiceTheme
 
-class MainActivity : ComponentActivity() {
+class LoginActivity : ComponentActivity() {
+
+    private val onSuccessfulLogin = {
+        val intent = Intent(this, MathTaskActivity::class.java)
+        startActivity(intent)
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE)
         setContent {
             MathVoiceTheme {
                 // A surface container using the 'background' color from the theme
@@ -31,6 +37,12 @@ class MainActivity : ComponentActivity() {
 
     @Composable
     private fun LoginComposable() {
-        LoginPage()
+        LoginPage(onSuccessfulLogin)
+    }
+
+    @Preview
+    @Composable
+    private fun LoginPreview() {
+        LoginPage(onSuccessfulLogin)
     }
 }

@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">MathVoice</string>
+    <string name="title_activity_math_task">mathTaskActivity</string>
 </resources>
